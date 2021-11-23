@@ -6,7 +6,7 @@ const importMovieUseCasesFactory = () =>
     /* webpackChunkName: "MovieUseCasesFactory" */ './movies/UseCases/factory'
   )
 const useCases = {
-  get_movies_use_case: [importMovieUseCasesFactory, 'GetMovieUseCase']
+  get_movies_use_case: [importMovieUseCasesFactory, 'getMovieUseCase']
 }
 
 export default EntryPointFactory({config, useCases})
