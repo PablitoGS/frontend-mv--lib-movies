@@ -1,5 +1,5 @@
 import GetMovieUseCase from './getMoviesUseCase'
-import MovieRepositoryFactory from '../Repositories/Factory'
+import MovieRepositoryFactory from '../Repositories/factory'
 
 export default class MovieUseCasesFactory {
   static getMovieUseCase = ({config}) =>

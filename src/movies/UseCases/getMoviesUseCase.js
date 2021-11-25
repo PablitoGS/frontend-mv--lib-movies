@@ -11,9 +11,8 @@ export default class GetMovieUseCase extends UseCase {
   }
 
   async execute() {
-    console.log('misco')
     const entities = await this.#repository.execute()
-    const dto = entities.map(data => data.toJSON())
-    return dto
+    console.log('>>> from use  case ', entities)
+    return entities
   }
 }
