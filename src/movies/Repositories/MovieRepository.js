@@ -19,4 +19,12 @@ export default class HTTPMovieRepository extends Repository {
     const movies = data.results.map(this.#fromGetMovieResponseToMovieEntity.map)
     return movies
   }
+
+  async search({keyword}) {
+    const {API_KEY, API_BASE_URL} = this.#config
+    const url = `${API_BASE_URL}/search/movie?api_key=${API_KEY}&language=es&include_adult=false&query=${keyword}`
+    const {data} = await this.#fetcher.get(url)
+    const movies = data.results.map(this.#fromGetMovieResponseToMovieEntity.map)
+    return movies
+  }
 }
