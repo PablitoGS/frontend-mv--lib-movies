@@ -7,7 +7,11 @@ const importMovieUseCasesFactory = () =>
   )
 const useCases = {
   get_movies_use_case: [importMovieUseCasesFactory, 'getMovieUseCase'],
-  search_movies_use_case: [importMovieUseCasesFactory, 'searchMoviesUseCase']
+  search_movies_use_case: [importMovieUseCasesFactory, 'searchMoviesUseCase'],
+  get_details_movie_use_case: [
+    importMovieUseCasesFactory,
+    'getDetailsMovieUseCase'
+  ]
 }
 
 export default EntryPointFactory({config, useCases})

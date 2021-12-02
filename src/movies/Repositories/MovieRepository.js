@@ -27,4 +27,12 @@ export default class HTTPMovieRepository extends Repository {
     const movies = data.results.map(this.#fromGetMovieResponseToMovieEntity.map)
     return movies
   }
+
+  async getDetails({id}) {
+    const {API_KEY, API_BASE_URL} = this.#config
+    const url = `${API_BASE_URL}/movie/${id}?api_key=${API_KEY}&language=es`
+    const {data} = await this.#fetcher.get(url)
+    const movie = this.#fromGetMovieResponseToMovieEntity.map(data)
+    return movie
+  }
 }
