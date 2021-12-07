@@ -18,7 +18,7 @@
     "commitmsg": "validate-commit-msg"
   },
   "browser": {
-  "./test/helpers/describers/index.js": "./test/helpers/describers/clientDescribers.js"
+    "./test/helpers/describers/index.js": "./test/helpers/describers/clientDescribers.js"
   },
   "babel": {
     "presets": [
@@ -45,6 +45,7 @@
     "@s-ui/test": "^6.6.0",
     "babel-preset-sui": "^3.30.0",
     "babelify": "^8.0.0",
+    "chai": "4.3.4",
     "husky": "4.3.0",
     "validate-commit-msg": "^2.14.0"
   },
