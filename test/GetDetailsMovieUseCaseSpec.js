@@ -1,12 +1,13 @@
 import {HttpMocker} from '@s-ui/mockmock'
 import {expect} from 'chai'
-import moviesResponse from './fixtures/moviesResponse'
-import moviesExpected from './fixtures/moviesExpected'
+import moviesResponse from './fixtures/detailsResponse'
+import moviesExpected from './fixtures/detailsExpected'
 import Domain from '../src'
 
-describe('GetMoviesUseCase', () => {
+describe('GetDetailsMovieUseCase', () => {
   const domain = new Domain()
   const mocker = new HttpMocker()
+  const id = '512195'
   const {API_BASE_URL, API_KEY} = domain.get('config')
 
   beforeEach(() => {
@@ -17,14 +18,16 @@ describe('GetMoviesUseCase', () => {
     mocker.restore()
   })
 
-  it('should return movies', async () => {
+  it('should return movie details', async () => {
     mocker
       .httpMock(API_BASE_URL)
-      .get(`/movie/popular?api_key=${API_KEY}&language=es&page=1`)
+      .get(`/movie/${id}?api_key=${API_KEY}&language=es`)
       .reply(moviesResponse, 200)
 
-    const result = await domain.get('get_movies_use_case').execute()
+    const result = await domain.get('get_details_movie_use_case').execute({id})
+    console.log('response', moviesExpected)
 
+    console.log(result)
     expect(result).to.deep.equals(moviesExpected)
   })
 })
