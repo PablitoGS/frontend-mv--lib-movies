@@ -25,9 +25,7 @@ describe('GetDetailsMovieUseCase', () => {
       .reply(moviesResponse, 200)
 
     const result = await domain.get('get_details_movie_use_case').execute({id})
-    console.log('response', moviesExpected)
 
-    console.log(result)
     expect(result).to.deep.equals(moviesExpected)
   })
 })
